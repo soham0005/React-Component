@@ -2,29 +2,35 @@ import React, { useState } from "react";
 import "./Form.css";
 
 const Form = () => {
+
+  const Data = [{
+    Name:"Soham",
+    Email:"soham@gmail.com",
+    Contact:"9665752438",
+    Suggestion:"Add Local Storage Functionality",
+  }
+];
+
+
+
   const [userName, setUsername] = useState("");
   const [userEmail, setUseremail] = useState("");
   const [userContactNo, setUsercontactnumber] = useState("");
   const [userSuggestion, setUsersuggestion] = useState("");
+  const [expense,setExpense] = useState(Data);
 
-  const Data = [];
 
 
 
   const submitHandler = (event) => {
     event.preventDefault();
     // console.log(userContactNo,userEmail,userName,userContactNo,userSuggestion);
-   
-    Data.push({
-        Name:userName,
-        Email:userEmail,
-        Contact:userContactNo,
-        Suggestion:userSuggestion,
-    })
+    setExpense((prevExpense)=>{
+      return [expense,...prevExpense];
+    });
     
+
     console.log(Data);
-
-
 
     setUsercontactnumber("")
     setUseremail("");
